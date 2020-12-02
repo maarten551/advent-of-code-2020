@@ -3,6 +3,7 @@ package nl.bobbeldijk.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -26,5 +27,9 @@ public class InputReader {
 
     public static String readStringFromInputFile(InputFile inputFile) {
         return readStreamFromInputFile(inputFile).collect(Collectors.joining("\r\n"));
+    }
+
+    public static List<String> readListFromInputFile(InputFile inputFile) {
+        return readStreamFromInputFile(inputFile).collect(Collectors.toList());
     }
 }
