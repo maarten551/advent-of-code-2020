@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class InputReader {
-    public static Stream<String> readStreamFromInputFile(InputFile inputFile) {
-        var fileLocation = String.format("%s/input.txt", inputFile.getFilename());
+    public static Stream<String> readStreamFromInputFile(InputFile inputFile, boolean isTestInput) {
+        var fileLocation = determineFileLocation(inputFile, isTestInput);
 
         try (var inputStream = InputReader.class.getClassLoader().getResourceAsStream(fileLocation)) {
             if (inputStream == null) {
@@ -25,11 +25,23 @@ public class InputReader {
         }
     }
 
+    public static Stream<String> readStreamFromInputFile(InputFile inputFile) {
+        return readStreamFromInputFile(inputFile, false);
+    }
+
     public static String readStringFromInputFile(InputFile inputFile) {
         return readStreamFromInputFile(inputFile).collect(Collectors.joining("\r\n"));
     }
 
     public static List<String> readListFromInputFile(InputFile inputFile) {
         return readStreamFromInputFile(inputFile).collect(Collectors.toList());
+    }
+
+    private static String determineFileLocation(InputFile inputFile, boolean isTestInput) {
+        if (isTestInput) {
+            return String.format("%s/test-input.txt", inputFile.getFilename());
+        }
+
+        return String.format("%s/input.txt", inputFile.getFilename());
     }
 }
