@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ApplicationTest {
     @Test
     void exampleHillTest() throws AnswerNotFoundException {
-        var testInput = InputReader.readStreamFromInputFile(InputFile.DAY3, true)
+        var testInput = InputReader.readStreamFromInputFile(InputFile.DAY3, true, "test")
                 .collect(Collectors.toList());
 
         var application = new Application();
