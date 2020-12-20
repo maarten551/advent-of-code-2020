@@ -51,7 +51,7 @@ public class Application extends BaseApplication implements Answerable<Long> {
 
     /**
      * - If a seat is empty (L) and there are no occupied seats adjacent to it, the seat becomes occupied.
-     * - If a seat is occupied (#) and four or more seats adjacent to it are also occupied, the seat becomes empty.
+     * - If a seat is occupied (#) and five or more seats adjacent to it are also occupied, the seat becomes empty.
      * - Otherwise, the seat's state does not change.
      */
     protected CoordinateState determineSeatState(int y, int x) {
