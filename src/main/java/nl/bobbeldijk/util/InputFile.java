@@ -10,7 +10,8 @@ public enum InputFile {
     DAY7("day-7"),
     DAY8("day-8"),
     DAY9("day-9"),
-    DAY10("day-10");
+    DAY10("day-10"),
+    DAY11("day-11");
 
     private final String filename;
 
